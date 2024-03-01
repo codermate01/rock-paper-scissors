@@ -14,26 +14,28 @@ function getComputerChoice(){
 }
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
-        return "Tie"
+        return "Tie";
     }else if(playerSelection === "Rock"){
         if(computerSelection === "Paper"){
-            return `You lose!${computerSelection} beats ${playerSelection}`
+            return `You lose!${computerSelection} beats ${playerSelection}`;
         }else{
-            return `You win! ${playerSelection} beats ${computerSelection}`
+            return `You win! ${playerSelection} beats ${computerSelection}`;
         }
     }else if(playerSelection === "Paper"){
         if(computerSelection === "Scissors"){
-            return `You lose!${computerSelection} beats ${playerSelection}`
+            return `You lose!${computerSelection} beats ${playerSelection}`;
         }else{
-            return `You win! ${playerSelection} beats ${computerSelection}`
+            return `You win! ${playerSelection} beats ${computerSelection}`;
         }
     }else{
         if(computerSelection === "Rock"){
-            return `You lose!${computerSelection} beats ${playerSelection}`
+            return `You lose!${computerSelection} beats ${playerSelection}`;
         }else{
-            return `You win! ${playerSelection} beats ${computerSelection}`
+            return `You win! ${playerSelection} beats ${computerSelection}`;
         }
     }
 }
+const playerInput = prompt("Choose rock, paper or scissors: ").toLowerCase();
+var playerChoice = playerInput.charAt(0).toUpperCase + playerInput.slice(1);
 console.log(playRound("Scissors",getComputerChoice()))
 // console.log(getComputerChoice())
