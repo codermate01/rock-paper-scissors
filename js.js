@@ -47,24 +47,24 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }
-function play5Rounds(){
-    var playerCount = 0;
-    var computerCount = 0;
-    for (var i = 1; i<6 ; i++){
-        console.log("Round ", i);
-        result = playRound(playerChoice(), getComputerChoice())
-        if (result === 1){
-            playerCount = playerCount + 1;
-        }else if (result === 0){
-            computerCount = computerCount + 1 ;
-        }else{}
-        console.log("Score: Player: ",playerCount," Computer: ", computerCount);
-    }
-    if (playerCount > computerCount){
-        return "You Win!";
-    }else{
-        return "You Lose!";
-    }
-}
+// function play5Rounds(){
+//     var playerCount = 0;
+//     var computerCount = 0;
+//     for (var i = 1; i<6 ; i++){
+//         console.log("Round ", i);
+//         result = playRound(playerChoice(), getComputerChoice())
+//         if (result === 1){
+//             playerCount = playerCount + 1;
+//         }else if (result === 0){
+//             computerCount = computerCount + 1 ;
+//         }else{}
+//         console.log("Score: Player: ",playerCount," Computer: ", computerCount);
+//     }
+//     if (playerCount > computerCount){
+//         return "You Win!";
+//     }else{
+//         return "You Lose!";
+//     }
+// }
 
-console.log(play5Rounds())
+console.log(playRound())
