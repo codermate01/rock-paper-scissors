@@ -70,17 +70,17 @@ function playRound(playerSelection, computerSelection){
 // Buttons
 const btnRock = document.querySelector('#rock');
 btnRock.addEventListener('click',() => {
-    playRound("rock",getComputerChoice)
+    playRound("Rock",getComputerChoice())
 })
 
 const btnPaper = document.querySelector('#paper');
 btnPaper.addEventListener('click',() => {
-    playRound("paper",getComputerChoice)
+    playRound("Paper",getComputerChoice())
 })
 
 const btnScissors = document.querySelector('#scissors');
 btnScissors.addEventListener('click',() => {
-    playRound("scissors",getComputerChoice)
+    playRound("Scissors",getComputerChoice())
 })
 
 // console.log(playRound())
