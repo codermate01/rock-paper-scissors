@@ -19,30 +19,37 @@ function playerChoice(){
 }
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
-        console.log(`Tie! Both used ${playerSelection}`);
+        // console.log(`Tie! Both used ${playerSelection}`);
+        div.textContent = "Tie! Both used "+ playerSelection;  
     }else if(playerSelection === "Rock"){
         if(computerSelection === "Paper"){
-            console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
+            // console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
+            div.textContent = "You lose! " + computerSelection + " beats "+ playerSelection;  
             return 0;
             
         }else{
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
+            // console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
+            div.textContent = "You win! "+ playerSelection +" beats "+ computerSelection; 
             return 1
         }
     }else if(playerSelection === "Paper"){
         if(computerSelection === "Scissors"){
-            console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
+            // console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
+            div.textContent = "You lose! " + computerSelection + " beats "+ playerSelection;  
             return 0;
         }else{
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
+            // console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
+            div.textContent = "You win! "+ playerSelection +" beats "+ computerSelection; 
             return 1
         }
     }else{
         if(computerSelection === "Rock"){
-            console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
+            // console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
+            div.textContent = "You lose! " + computerSelection + " beats "+ playerSelection;  
             return 0;
         }else{
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
+            // console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
+            div.textContent = "You win! "+ playerSelection +" beats "+ computerSelection; 
             return 1
         }
     }
@@ -66,6 +73,9 @@ function playRound(playerSelection, computerSelection){
 //         return "You Lose!";
 //     }
 // }
+// Add a div for displaying results and change all of your console.logs into DOM methods.
+
+const div = document.querySelector("#result");
 
 // Buttons
 const btnRock = document.querySelector('#rock');
@@ -83,4 +93,3 @@ btnScissors.addEventListener('click',() => {
     playRound("Scissors",getComputerChoice())
 })
 
-// console.log(playRound())
