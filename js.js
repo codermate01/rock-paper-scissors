@@ -1,3 +1,5 @@
+var compScore = 0;
+var playerScore = 0;
 function getComputerChoice(){
     var choice = Math.floor(Math.random()*3);
     switch(choice){
@@ -18,6 +20,7 @@ function playerChoice(){
     return playerChoice;
 }
 function playRound(playerSelection, computerSelection){
+    
     if (playerSelection === computerSelection){
         // console.log(`Tie! Both used ${playerSelection}`);
         div.textContent = "Tie! Both used "+ playerSelection;  
@@ -25,71 +28,78 @@ function playRound(playerSelection, computerSelection){
         if(computerSelection === "Paper"){
             // console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
             div.textContent = "You lose! " + computerSelection + " beats "+ playerSelection;  
-            return 0;
+            compScore++
             
         }else{
             // console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
             div.textContent = "You win! "+ playerSelection +" beats "+ computerSelection; 
-            return 1
+            playerScore++
         }
     }else if(playerSelection === "Paper"){
         if(computerSelection === "Scissors"){
             // console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
             div.textContent = "You lose! " + computerSelection + " beats "+ playerSelection;  
-            return 0;
+            compScore++
         }else{
             // console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
             div.textContent = "You win! "+ playerSelection +" beats "+ computerSelection; 
-            return 1
+            playerScore++
         }
     }else{
         if(computerSelection === "Rock"){
             // console.log(`You lose!${computerSelection} beats ${playerSelection}`); 
             div.textContent = "You lose! " + computerSelection + " beats "+ playerSelection;  
-            return 0;
+            compScore++
         }else{
             // console.log(`You win! ${playerSelection} beats ${computerSelection}`); 
             div.textContent = "You win! "+ playerSelection +" beats "+ computerSelection; 
-            return 1
+            playerScore++
         }
     }
+    console.log("1", playerScore, "2", compScore)
 }
-// function play5Rounds(){
-//     var playerCount = 0;
-//     var computerCount = 0;
-//     for (var i = 1; i<6 ; i++){
-//         console.log("Round ", i);
-//         result = playRound(playerChoice(), getComputerChoice())
-//         if (result === 1){
-//             playerCount = playerCount + 1;
-//         }else if (result === 0){
-//             computerCount = computerCount + 1 ;
-//         }else{}
-//         console.log("Score: Player: ",playerCount," Computer: ", computerCount);
-//     }
-//     if (playerCount > computerCount){
-//         return "You Win!";
-//     }else{
-//         return "You Lose!";
-//     }
-// }
+const checkForWinner = (playerScore,compScore)=>{
+    p.innerText= "Player score "+ playerScore + ", Computer score "+compScore;
+    if(playerScore === 5){
+        p.innerText = "You Won"
+        playerScore = 0
+        compScore = 0
+
+    }else if(compScore ===5){
+        p.innerText = "You Lose"
+        playerScore = 0
+        compScore = 0
+    }
+
+}
+
 // Add a div for displaying results and change all of your console.logs into DOM methods.
 
 const div = document.querySelector("#result");
+const counter= document.querySelector("#counter")
+const p = document.createElement("p")
+
+counter.appendChild(p)
 
 // Buttons
 const btnRock = document.querySelector('#rock');
 btnRock.addEventListener('click',() => {
     playRound("Rock",getComputerChoice())
+    checkForWinner(playerScore, compScore)
+  
 })
 
 const btnPaper = document.querySelector('#paper');
 btnPaper.addEventListener('click',() => {
     playRound("Paper",getComputerChoice())
+    checkForWinner(playerScore, compScore)
+    
 })
 
 const btnScissors = document.querySelector('#scissors');
 btnScissors.addEventListener('click',() => {
     playRound("Scissors",getComputerChoice())
+    checkForWinner(playerScore, compScore)
+    
 })
 
